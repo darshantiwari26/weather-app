@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(to bottom, #a0d8f1, #e0f7fa);
+  transition: background 0.4s ease;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+body.dark {
+  background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+  color: white;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  text-align: center;
+  margin-top: 100px;
+  padding: 20px;
+}
+
+input[type="text"] {
+  padding: 12px 20px;
+  width: 280px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+button {
+  padding: 12px 25px;
+  margin-left: 10px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: none;
+  background-color: #00aaff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0077cc;
+}
+
+.weather-box {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  padding: 20px;
+  display: inline-block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.weather-box.hidden {
+  display: none;
+}
+
+#day-night-status {
+  margin-top: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* Cloud animations */
+/* Cloud container */
+
+  .cloud {
+  position: absolute;
+  top: 50px;
+  width: 100px;
+  height: 60px;
+  background: transparent;
+  animation: floatCloud 30s linear infinite;
+}
+
+.cloud1 { top: 50px; left: -150px; animation-delay: 0s; }
+.cloud2 { top: 100px; left: -200px; animation-delay: 5s; }
+.cloud3 { top: 150px; left: -180px; animation-delay: 10s; }
+
+.cloud::before,
+.cloud::after,
+.cloud .middle {
+  content: '';
+  position: absolute;
+  background: #c4c4d4;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+.cloud::before {
+  width: 60px;
+  height: 40px;
+  left: 0;
+  bottom: 0;
+}
+
+.cloud .middle {
+  width: 80px;
+  height: 50px;
+  left: 20px;
+  bottom: 10px;
+}
+
+.cloud::after {
+  width: 60px;
+  height: 40px;
+  left: 40px;
+  bottom: 0;
+}
+
+@keyframes floatCloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(150vw);
+  }
+}
